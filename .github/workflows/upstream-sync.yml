@@ -21,6 +21,3 @@ jobs:
 
           upstream_sync_repo: kamranahmedse/developer-roadmap
           upstream_sync_branch: master
-
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force_sync: false
