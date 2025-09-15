@@ -15,7 +15,6 @@ jobs:
       - name: Sync fork from upstream
         uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
         with:
-          with:
           target_sync_branch: master
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
 
