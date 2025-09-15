@@ -1,0 +1,22 @@
+name: Upstream Sync
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"  
+  workflow_dispatch: {}  
+
+permissions:
+  contents: write        
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync fork from upstream
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3
+        with:
+          upstream_repository: kamranahmedse/developer-roadmap
+          upstream_branch: master        # upstream default
+          target_branch: master          # your fork default (change to 'main' if needed)
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force_sync: false
