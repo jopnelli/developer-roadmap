@@ -15,8 +15,12 @@ jobs:
       - name: Sync fork from upstream
         uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
         with:
-          upstream_repository: kamranahmedse/developer-roadmap
-          upstream_branch: master        # upstream default
-          target_branch: master          # your fork default (change to 'main' if needed)
+          with:
+          target_sync_branch: master
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+
+          upstream_sync_repo: kamranahmedse/developer-roadmap
+          upstream_sync_branch: master
+
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force_sync: false
