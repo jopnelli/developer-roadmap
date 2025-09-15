@@ -6,17 +6,22 @@ on:
   workflow_dispatch: {}  
 
 permissions:
-  contents: write        
+  contents: write    
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v5.0.0
+        with:
+          persist-credentials: false  
+
       - name: Sync fork from upstream
+        id: sync
         uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
         with:
-          target_sync_branch: master
+          target_sync_branch: master               
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
-
           upstream_sync_repo: kamranahmedse/developer-roadmap
-          upstream_sync_branch: master
+          upstream_sync_branch: master             
