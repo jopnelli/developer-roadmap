@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync fork from upstream
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
         with:
           upstream_repository: kamranahmedse/developer-roadmap
           upstream_branch: master        # upstream default
